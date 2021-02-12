@@ -7,7 +7,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Chewy|Marck+Script" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+        <script type="text/javascript" src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_paper.css' ) }}">
         <script type="text/javascript" charset="utf-8">
@@ -46,17 +46,13 @@
     </head>
     <body>
         <div id="wrapper">
-
                 <div id="paper">
-            
-                    <div id="margin" style="font-family: 'Marck Script', cursive;
-                            font-size:32px;">
-                            Haz iniciado el chat en la sala -> {{ room }} </div>
+                    <div id="margin" style="cursive; font-size:25px;">
+                            Welcome to join {{ room }} </div>
                     <textarea id="chat" readonly="readonly" cols="80" rows="20" 
                     style="height: 450px; max-height: 450px; width: 800px;
                         background-color:#FFF;
                         color:#222;
-                        font-family: 'Chewy', cursive;
                         font-weight:normal;
                         font-size:16px;
                         resize:none;
@@ -65,8 +61,6 @@
                         padding-right:100px;
                         padding-top:45px;
                         padding-bottom:34px;
-                        background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
-                        background-repeat:repeat-y, repeat;
                         -webkit-border-radius:12px;
                         border-radius:12px;
                         -webkit-box-shadow: 0px 2px 14px #000;

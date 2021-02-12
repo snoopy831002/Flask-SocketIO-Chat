@@ -1,119 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Aldair47x</title>
+	<title>Let's chat</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico' ) }}"/>
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css' ) }}" >
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css') }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.css') }}">
-<!--===============================================================================================-->
-    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 <!--===============================================================================================-->
 <script language="JavaScript">
 		function habilita(){
 			$(".inputText").removeAttr("disabled");
 		}
-	 
+
 		function deshabilita(){
 			$(".inputText").attr("disabled","disabled");
 		}
 	</script>
 </head>
 <body>
-
 	<div class=""container>
 		<div class="row justify-content-center">
 			<div class="col-md-8 col-sm-12 col-offset-md-2">
-					<div class="container-contact100">
-							<div class="wrap-contact100">
-								<form class="contact100-form validate-form" method="POST">
-										{{ form.hidden_tag() }}
-									<h1 style="font-family: 'Berkshire Swash', cursive;
-												margin: 30px;">Flask chat with SOCKET IO</h1>
-									
-									
-								
-										
-
-
-										<div class="wrap-input100 validate-input" data-validate="Name is required">
-												<input class="input100" class="lnr lnr-user" id="name" name="name" type="text"  placeholder="Nickname">
-												<label class="label-input100" for="name">
-													<span class="lnr lnr-user" style="margin: 0px 0px 0px 0px;"></span>  
-													<div style="visibility: hidden;">
-																					
-														
-													</div>
-												  
-													
-												</label>
-												
-										</div>
-
-										<div class="input-group mb-3">
-											<div class="input-group-prepend">
-											  <label class="input-group-text" for="inputGroupSelect01">Rooms</label>
-											</div>
-											<select onchange="cambio()" class="custom-select" id="inputGroupSelect01">
-											<option selected value="-1" disabled>Select option...</option>
-											{%for a in lista%}
-											  <option value="{{a}}">{{a}}</option>
-											{%endfor%}
-											  <option value="crear">Create room</option>
-											</select>
-										  </div>
-										  <div class="wrap-input100 validate-input" data-validate="Name is required">
-												<input class="input100" id="room" type="text" name="room" placeholder="Room Name" style="display:none">
-												<label class="label-input100" for="room">
-														<span class="lnr lnr-users" style="margin: 0px 0px 0px 20px;"></span>  
-														<div style="visibility: none;">
-														
-														</div>
-												</label>
-												
-										</div>
-									
-	
-
-					
-									<div class="container-contact100-form-btn">
-											<div class="wrap-contact100-form-btn">
-												<div class="contact100-form-bgbtn"></div>
-												<button type="submit" class="contact100-form-btn" >
-												Submit 
-												</button>
-												
-									</div>
-
-									<a href="/registrar" >Registrar </a>
-											
-									
-					
-									
-								</form>
+				<div class="container">
+					<div class="row">
+						<form class="col-sm validate-form" method="POST">
+							<div class="form-row align-items-center">
+							{{ form.hidden_tag() }}
+							<h1 style="margin: 30px;">Flask chat with SOCKET IO</h1>
+							<div class="col-auto validate-input" data-validate="Name is required">
+								<input class="form-control" class="lnr lnr-user" id="name" name="name" type="text"  placeholder="Nickname">
 							</div>
-						</div>
+							<div class="col-auto input-group mb-3">
+								<div class="input-group-prepend">
+									<label class="input-group-text" for="inputGroupSelect01">Rooms</label>
+								</div>
+								<select onchange="cambio()" class="custom-select" id="inputGroupSelect01">
+									<option selected value="-1" disabled>Select option...</option>
+									{%for a in lista%}
+									<option value="{{a}}">{{a}}</option>
+									{%endfor%}
+									<option value="crear">Create room</option>
+								</select>
+							</div>
+							<div class="col-auto wrap-input100 validate-input" data-validate="Name is required">
+								<input class="form-control" id="room" type="text" name="room" placeholder="Room Name" style="display:none">
+							</div>
+							<div class="col-auto">
+									<button type="submit" class="btn btn-info" >
+										Submit
+									</button>
+							</div>
+								</div>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
