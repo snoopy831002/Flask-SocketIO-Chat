@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Aldair47x {{ room }}</title>
+        <title>{{ room }}</title>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
         <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -46,10 +46,10 @@
     </head>
     <body>
         <div id="wrapper">
-                <div id="paper">
+                <div id="">
                     <div id="margin" style="cursive; font-size:25px;">
                             Welcome to join {{ room }} </div>
-                    <textarea id="chat" readonly="readonly" cols="80" rows="20" 
+                    <textarea id="chat" class="form-control" readonly="readonly" cols="80" rows="20"
                     style="height: 450px; max-height: 450px; width: 800px;
                         background-color:#FFF;
                         color:#222;
@@ -70,19 +70,14 @@
                         overflow-y: scroll;"> </textarea>
                     <br><br>
                 </div>
-                <input id="text" placeholder="Enter your message here"  style=" width: 800px;  padding: 10px 20px;
+                <input id="text" class="form-control" placeholder="Enter your message here"  style=" width: 800px;  padding: 10px 20px;
                         box-sizing: border-box;
-                        background: rgb(212, 207, 124);
                         border: 0;
                         color:#222;
                         display: block;
                         width: 100%;
-                        background: rgb(212, 207, 124);
-                        border-bottom: 1px solid rgb(48, 67, 175);
-                        font-family: 'Chewy', cursive;
                         font-weight:normal;
                         font-size:16px;">
-
                 <a href="#" onclick="leave_room();">Leave this room</a>
         </div>
 
