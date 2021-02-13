@@ -7,10 +7,6 @@ listrooms=[]
 def index():
     """Login form to enter a room."""
     form = LoginForm()
-    archivo = open("archivo.txt","a")
-    a = "Usuario: " + str(form.name.data) + "  Sala: " + str(form.room.data) + " \n"
-    archivo.write(str((a)))
-    archivo.close()
     if form.validate_on_submit():
         if not (listrooms):
             listrooms.append(form.room.data)
