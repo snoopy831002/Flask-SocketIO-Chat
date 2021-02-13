@@ -12,7 +12,7 @@ def index():
             listrooms.append(form.room.data)
         else:
             if(room_checker(form.room.data)):
-                print("ya esta")
+                print("Add in existing room")
             else:
                 listrooms.append(form.room.data)
         session['name'] = form.name.data
