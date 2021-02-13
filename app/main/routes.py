@@ -22,8 +22,6 @@ def index():
                 print("ya esta")
             else:
                 listasalas.append(form.room.data)
-                    
-            
         session['name'] = form.name.data
         session['room'] = form.room.data
         return redirect(url_for('.chat'))
@@ -31,27 +29,6 @@ def index():
         form.name.data = session.get('name', '')
         form.room.data = session.get('room', '')
     return render_template('index.html', form=form,lista=listasalas)
-
-@main.route('/registrar', methods=['GET', 'POST'])
-def registrar():
-    form = LoginForm()
-    if form.validate_on_submit():
-        if not (listasalas):
-            listasalas.append(form.room.data)
-        else:
-            if(verificar(form.room.data)):
-                print("ya esta")
-            else:
-                listasalas.append(form.room.data)
-        session['name'] = form.name.data
-        session['room'] = form.room.data
-        return redirect(url_for('.chat'))
-    elif request.method == 'GET':
-        form.name.data = session.get('name', '')
-        form.room.data = session.get('room', '')
-    return render_template('registrar.html', form=form,lista=listasalas)
-
-
 
 @main.route('/ingresar', methods=['GET', 'POST'])
 def verificar(dato):
